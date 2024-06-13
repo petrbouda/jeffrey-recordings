@@ -1,0 +1,45 @@
+**/target/
+
+recordings
+
+### IntelliJ IDEA ###
+**/.idea/
+**/*.iml
+
+### Mac OS ###
+.DS_Store
+
+# Logs
+pages/logs
+pages/*.log
+pages/npm-debug.log*
+pages/yarn-debug.log*
+pages/yarn-error.log*
+pages/pnpm-debug.log*
+pages/lerna-debug.log*
+
+# dependencies
+pages/node_modules
+pages/package-lock.json
+pages/yarn.lock
+
+pages/.DS_Store
+pages/dist
+pages/dist-ssr
+pages/coverage
+pages/*.local
+
+/cypress/videos/
+/cypress/screenshots/
+
+# Editor directories and files
+pages/.vscode/*
+pages/!.vscode/extensions.json
+pages/.idea
+pages/*.suo
+pages/*.ntvs*
+pages/*.njsproj
+pages/*.sln
+pages/*.sw?
+
+package-lock.json
