@@ -43,3 +43,6 @@ pages/*.sln
 pages/*.sw?
 
 package-lock.json
+
+# Unpacked by jeffrey's record-plugin-eval-mocks.py --load beside the archive
+plugin-evals/checkout.hprof
