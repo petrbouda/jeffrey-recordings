@@ -7,18 +7,19 @@ Jeffrey that holds these three profiles, and their graders name figures this rec
 
 | File | What it is |
 |---|---|
-| `checkout-baseline.jfr` | 30 s of the eval workload (`evals/fixtures/workload/`), `baseline` mode |
+| `checkout-baseline.jfr` | 30 s of the eval workload (`evals/fixtures/workload/`), `baseline` mode, one checkout in 50 traced as a `POST /checkout` exchange with its spans |
 | `checkout-candidate.jfr` | the same workload in `candidate` mode, with its deliberate pricing regression |
 | `checkout.hprof.gz` | the heap dump taken at the end of the candidate run, gzipped |
 
-Recorded with plugin 1.0.17 (jeffrey #378) by `build/scripts/record-plugin-eval-mocks.py`, JDK 25
-and `settings=profile` with every exception throw. Figures: 5,775 `Checkout$Order` objects, 1,427 of
-them with a `SPRING-` coupon. sha256 of the files as the recorder wrote them (the dump unpacked):
+Recorded with plugin 1.0.28 by `build/scripts/record-plugin-eval-mocks.py`, JDK 25, `settings=profile`
+with every exception throw, and jeffrey-events and jeffrey-tracing on the workload's class path. Figures:
+5,822 `Checkout$Order` objects, 1,441 of them with a `SPRING-` coupon. sha256 of the files as the
+recorder wrote them (the dump unpacked):
 
 ```
-136e632e83fc5603dd6880c8be0919f41ea03a8628df953df0bfe9037ac0e941  checkout-baseline.jfr
-7f72eed3ce87e00a1ab215defbe00807a6b97d1c005d4dd52f802cdd927e8c74  checkout-candidate.jfr
-a484be60bdada2925afb6aab41477eb26013c9738c7a8b3f45baf305b7b5acd8  checkout.hprof
+dd35c8532fec0a289286211ca8ad0dad09284933c3c5619f900ee92682a1c7fc  checkout-baseline.jfr
+dc63e2d4f3e6fd0bb5a053e0c280605833b528c28164e4f8849090a4be16a0de  checkout-candidate.jfr
+e5e6d03e0f4dafbaa67192943e1edb20ab02de7a412289c175b2ccd54718ad04  checkout.hprof
 ```
 
 Load them into an empty Jeffrey on the plugin's endpoint, from a jeffrey checkout:
